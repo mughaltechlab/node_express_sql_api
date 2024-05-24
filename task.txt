@@ -1,0 +1,20 @@
+npm init
+
+npm i express
+
+index.js=>
+            import express
+            import json data file
+
+            // create app instance
+            const app = express()
+
+            const PORT = 8000
+
+
+
+            // create routes
+
+            // dynamic route
+            GET /api/users/:id
+            :id => Variable | Dynamic
