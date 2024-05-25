@@ -20,10 +20,10 @@ console.log('----------------------------------------')
 
 
 const pool = mysql.createPool({
-    host: process.env.HOST,
-    user: process.env.USERNAME,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
     // host: '127.0.0.1',
     // host: 'localhost',
     // user: 'root',
@@ -31,6 +31,8 @@ const pool = mysql.createPool({
     // database: 'easymeet',
 
 }).promise()
+
+
 pool.query("SELECT * FROM user_types")
 .then(res => console.log(res))
 
@@ -48,7 +50,19 @@ async function getUserById(id){
     return result
 }
 
+// Create User
+
 const userType = await getUsersType();
 const userTypeById = await getUserById(1);
 
 console.log(userTypeById);
+
+// [
+//     {
+//         id: 1,
+//         name: 'admin',
+//         active: 0,
+//         created_at: 2024-04-30T19:00:00.000Z,
+//         updated_at: 2024-05-01T19:00:00.000Z
+//     }
+// ],
